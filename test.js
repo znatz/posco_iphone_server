@@ -21,7 +21,9 @@ app.post('/', function(req,res) {
     console.log(req.body.cusine);
     var result = req.body.cusine.replace(/\(/g,'[');
     result = result.replace(/\)/g,']');
+    result = "テーブル" + req.body.key + "から" + result;
     io.emit('chat',result);
+    console.log(req.body.key);
 });
 
 http.listen(3000, function(){
